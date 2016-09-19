@@ -1,0 +1,16 @@
+package main
+
+import (
+	"github.com/sso2712/jenkins/crypto"
+)
+
+func main() {
+	const hudsonSecretB64encoded = "2HnaX90EuvoGkFGIsaLf19OPJKIjheOCru8MjUszmgXlco1R76OKff8aue5fiQ+refipgZjW90L0xdHMBPQ1VUXYbBOuiFdhot5YEog9za5ioqt89g0dB+2jLHFToIupSuvZ11yRyUEizC0LuLS88kYs0sulZ5PG9DGIVomGOOP5erSTJBZCtogEYB67ozGVIphmPRdFaU5HqHzDHL9baTb50GxbPp63x2PPN+FZFrdO5W0bpUBvItqLkrMA4jZSAMh0PXi4I1bef4UJnaAt4DHPdmMRNvVtwnf5Ok4GaaeIXTtFElD2FCf996MuSMP5S23zoB0T+traRrhJRIKB8ktMHW2J0pZ5bP+6RWrw+9s="
+	const masterKey = "eb91c91201fc68cf802de3302b1687cc1f3a7df242bd7ee048a3ec6b22ffea2732419f70add68b75cc6fab61f40faccfb5fd8264c87730395da687591d00e49beb9976c8a7867c816ce0af7d9c68c2df42cfa5e0eca775d18b3b3bef86b6c2eb6b3241f5447b7b4dcb894a648385ea8febf206fc4928a5f7772053deb2651e87"
+
+	c := new(crypto.Crypto)
+	c.SetSecretKey(hudsonSecretB64encoded)
+	c.SetMasterKey(masterKey)
+	c.Decrypt("BLA/yS7fZ4kwzBrih/9kY1wAHcLPqGaTTPmaYkQ0IDA=")
+	c.Encrypt("mypassword1234")
+}
